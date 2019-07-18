@@ -8,8 +8,8 @@ SSL goalkeeper
 
 optional arguments:
   -h, --help       show this help message and exit
-  --config CONFIG
-  --nomail
+  --config CONFIG  <- define another configuration file than the default one
+  --nomail         <- dont sent an email, just print to screen
 
 # Configuration sections
 [email]                              <- configure an email server to sent email alerts, smtp is currently only supported
