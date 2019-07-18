@@ -131,4 +131,4 @@ if __name__ == '__main__':
     configuration = get_configuration(configuration = args)
     configuration = validate_configuration(configuration = configuration)
     check_domains(domains = configuration,args=args)
-    #check_domains(domains = validate_configuration(config = get_configuration(configuration = get_arguments())))
+
