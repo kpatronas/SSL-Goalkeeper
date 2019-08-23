@@ -96,7 +96,7 @@ def ssl_checker(host,port):
     conn = ssl.create_connection((host,port))
     context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
     sock = context.wrap_socket(conn, server_hostname=host)
-    certificate = ssl.DER_cert_to_PEM_cert(sock.getpeercert(True)
+    certificate = ssl.DER_cert_to_PEM_cert(sock.getpeercert(True))
     #certificate = ssl.get_server_certificate((host,port))
     x509_certificate = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, certificate)
     
