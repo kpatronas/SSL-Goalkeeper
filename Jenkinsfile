@@ -13,6 +13,13 @@ node {
   myTestContainer.inside {
        sh 'python tests.py'
   }
+  myTestContainer.stop()
+ }
+ 
+ stage('docker build/push') {            
+  docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
+   def app = docker.build("kpat/test1:${commit_id}", '.').push()
+  }
  }
  
 }
