@@ -1,4 +1,5 @@
 node {
+ 
  def commit_id
  
  stage('Preparation') {
@@ -8,11 +9,9 @@ node {
  }
  
  stage('test') {
-  def myTestContainer = docker.image('node:4.6')
-  myTestContainer.pull()
+  def myTestContainer = docker.build("test-python", "./dockerfiles/test-python")
   myTestContainer.inside {
-       sh 'npm install --only=dev'
-       sh 'npm test'
+       sh 'python tests.py'
   }
  }
  
