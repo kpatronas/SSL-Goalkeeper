@@ -14,6 +14,6 @@ node {
    sh 'python ./tests/python_tests.py'
   }
  }
- myTestContainer.stop()
+ //myTestContainer.stop()
  
 }
