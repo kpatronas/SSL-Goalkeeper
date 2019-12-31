@@ -9,7 +9,7 @@ node {
  }
  
  stage('test') {
-  def myTestContainer = docker.build("test-python", "./dockerfiles/test-python")
+  def myTestContainer = docker.build("test-python", "./dockerfiles/")
   myTestContainer.inside {
        sh 'python tests.py'
   }
