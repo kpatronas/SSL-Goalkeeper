@@ -11,7 +11,7 @@ node {
  stage('test') {
   def myTestContainer = docker.build("test-python", "--no-cache -f ./dockerfiles/DockerfileTesting .")
   myTestContainer.inside {
-   sh 'ls -la'
+   sh 'python ./tests/python_tests.py'
   }
   myTestContainer.stop()
  }
