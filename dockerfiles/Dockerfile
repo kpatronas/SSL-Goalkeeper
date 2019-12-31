@@ -4,3 +4,4 @@ RUN pip install pipenv
 COPY / /app
 WORKDIR /app
 RUN pip install -r ./tests/requirements.txt
+CMD ["python","-m","http.server","8000"]
