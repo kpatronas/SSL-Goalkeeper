@@ -10,6 +10,9 @@ node {
  
  stage('test') {
   def myTestContainer = docker.build("test-python", "--no-cache -f ./dockerfiles/DockerfileTesting .")
+  myTestContainer.inside {
+   sh 'ls -la'
+  }
   myTestContainer.stop()
  }
  
