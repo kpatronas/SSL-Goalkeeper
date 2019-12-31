@@ -9,11 +9,16 @@ node {
  }
  
  stage('test') {
-  def myTestContainer = docker.build("test-python", "--no-cache -f ./dockerfiles/DockerfileTesting .")
+  def myTestContainer = docker.build("test-python", "--no-cache -f ./dockerfiles/Dockerfile .")
   myTestContainer.inside {
    sh 'python ./tests/python_tests.py'
   }
  }
- //myTestContainer.stop()
+ 
+ stage('push to docker registry') {
+  docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
+   def app = docker.build("kpat/python-pipeline-demo:${commit_id}", "--no-cache -f ./dockerfiles/Dockerfile .").push()
+  }
+ }       
  
 }
