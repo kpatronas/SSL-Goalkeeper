@@ -9,7 +9,7 @@ node {
  }
  
  stage('test') {
-  def myTestContainer = docker.build("test-python", "--no-cache -f ./DockerfileTesting")
+  def myTestContainer = docker.build("test-python", "--no-cache -f /Dockerfiles/DockerfileTesting")
   myTestContainer.stop()
  }
  
